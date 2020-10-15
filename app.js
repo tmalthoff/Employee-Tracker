@@ -25,6 +25,7 @@ function startApp() {
                     break;
                 case "View Roles":
                     Role_Prompt();
+                    break;
                 default:
                     finish();
                 // code block
@@ -101,9 +102,7 @@ function Role_Prompt() {
                 name: "rolesList",
                 message: "What would you like to do?",
                 choices: [
-                    "View All Positions",
-                    "Add a New Position",
-                    "Exit",
+                    "View All Positions", "Add a New Position", "Exit",
                 ],
             },
         ])
