@@ -124,15 +124,15 @@ function Role_Prompt() {
 const View_All_Departments = () => {
     console.log("Here are the active departments:");
     DB.getAllDeparments().then(function (res) {
-        printTable(res);
-        mainMenu();
+       console.table(res);
+        startApp();
     });
 };
 
 function View_All_Employees() {
     console.log("Here is your full roster of employees");
     DB.getAllEmployees().then(function (response) {
-      printTable(response);
+      console.table(response);
       startApp();
     });
   }
@@ -140,7 +140,7 @@ function View_All_Employees() {
   const View_All_Roles = () => {
     console.log("Here are the current roles for your organization");
     DB.getAllRoles().then((data) => {
-      printTable(data);
+     console.table(data);
       startApp();
     });
   };
@@ -159,7 +159,7 @@ function View_All_Employees() {
     }]).then(function(response) {
       console.log(response.departmentChoice)
       DB.listEmployeesByDepartment().then(function(response){
-        printTable(response)
+        console.table(response)
 
       })
     })
