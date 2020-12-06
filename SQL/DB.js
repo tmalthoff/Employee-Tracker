@@ -4,7 +4,7 @@ class DB {
     constructor(){
         this.connection = connection
     }
-    getAllDeparments() {
+    getAllDepartments() {
         return this.connection.query("SELECT * FROM department")
     }
 
@@ -17,7 +17,7 @@ class DB {
     }
     createDepartment(name) {
         return this.connection.query("INSERT INTO department SET ?", {
-            name: name
+            dep_name: name
         })
     }
     createRole(title, salary, department_id) {

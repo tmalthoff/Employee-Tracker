@@ -122,7 +122,7 @@ function Role_Prompt() {
 
 const View_All_Departments = () => {
     console.log("Here are the active departments:");
-    DB.getAllDeparments().then(function (res) {
+    DB.getAllDepartments().then(function (res) {
        console.table(res);
         startApp();
     });
@@ -146,8 +146,8 @@ function View_All_Employees() {
 
   async function List_Employees_By_Department() {
     const departments = await DB.getAllDepartments();
-    const departmentArray = departments.map(({ id, name }) => ({
-      name: name,
+    const departmentArray = departments.map(({ id, dep_name }) => ({
+      name: dep_name,
       value: id
     }));
     inquirer.prompt([{
@@ -159,7 +159,7 @@ function View_All_Employees() {
       console.log(response.departmentChoice)
       DB.listEmployeesByDepartment().then(function(response){
         console.table(response)
-
+        View_All_Employees();
       })
     })
   }
@@ -182,7 +182,7 @@ function View_All_Employees() {
   async function Add_Role() {
     const departments = await DB.getAllDepartments();
     
-    const departmentChoices = departments.map(({ id, name }) => ({
+    const departmentChoices = departments.map(({ id, dep_name }) => ({
       name: name,
       value: id
     }));
